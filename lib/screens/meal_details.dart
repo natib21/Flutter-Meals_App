@@ -13,6 +13,7 @@ class MealDetailsScreen extends StatelessWidget {
           meals.title,
           overflow: TextOverflow.ellipsis,
         ),
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.star))],
       ),
       body: SingleChildScrollView(
         child: Column(
