@@ -27,15 +27,21 @@ class _TabsScreen extends State<TabsScreen> {
     } else {
       _favoriteMeals.add(meal);
     }
+    print(_favoriteMeals);
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget activePage = CatagoriesScreen();
+    Widget activePage = CatagoriesScreen(
+      onToggleFavorite: _toggleMealFavoritesStatus,
+    );
     var activePageTitle = 'Categories';
 
     if (_selectedPageIndex == 1) {
-      activePage = MealsScreen(meals: []);
+      activePage = MealsScreen(
+        meals: [],
+        onToggleFavorite: _toggleMealFavoritesStatus,
+      );
       activePageTitle = 'Your Favorites';
     }
     return Scaffold(

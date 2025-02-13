@@ -6,9 +6,9 @@ import 'package:meals_app_flutter/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
-  MealItem({super.key, required this.meal});
+  MealItem({super.key, required this.meal, required this.onToggleFavorite});
   final Meal meal;
-
+  final void Function(Meal meal) onToggleFavorite;
   String get complexityText {
     return meal.complexity.name[0].toUpperCase() +
         meal.complexity.name.substring(1);
@@ -23,7 +23,10 @@ class MealItem extends StatelessWidget {
     final filteredData = dummyMeals.where((el) => el.id == meal.id).toList();
     Navigator.of(context).push(
       MaterialPageRoute(builder: (ctx) {
-        return MealDetailsScreen(meals: filteredData[0]);
+        return MealDetailsScreen(
+          meals: filteredData[0],
+          onToggleFavorite: onToggleFavorite,
+        );
       }),
     );
   }
