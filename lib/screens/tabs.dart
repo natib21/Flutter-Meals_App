@@ -21,6 +21,13 @@ class _TabsScreen extends State<TabsScreen> {
     });
   }
 
+  void _setScreen(String identifier) {
+    if (identifier == "filters") {
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
   void _showInfoMessage(String message) {
     ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context)
@@ -57,7 +64,7 @@ class _TabsScreen extends State<TabsScreen> {
         title: Text(activePageTitle),
       ),
       body: activePage,
-      drawer: MainDrawer(),
+      drawer: MainDrawer(onSelectScreen: _setScreen),
       bottomNavigationBar: BottomNavigationBar(
           onTap: _selectPage,
           currentIndex: _selectedPageIndex,
