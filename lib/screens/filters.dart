@@ -2,13 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meals_app_flutter/screens/tabs.dart';
 import 'package:meals_app_flutter/widgets/main_drawer.dart';
 
-
-enum Filters {
-  glutenFree,
-  lactoseFree,
-  vegetarian,
-  vegan
-}
+enum Filters { glutenFree, lactoseFree, vegetarian, vegan }
 
 class FiltersScreen extends StatefulWidget {
   const FiltersScreen({super.key});
@@ -44,15 +38,14 @@ class _FiltersScreenState extends State<FiltersScreen> {
       body: WillPopScope(
         onWillPop: () async {
           Navigator.of(context).pop({
-         Filters.glutenFree : _glutenFreeFilterSet,
-         Filters.lactoseFree : _lactoseFreeFilterSet,
-         Filters.vegetarian: _vegetarianFilterSet,
-         Filters.vegan : _veganFilterSet,
-        
-        });
+            Filters.glutenFree: _glutenFreeFilterSet,
+            Filters.lactoseFree: _lactoseFreeFilterSet,
+            Filters.vegetarian: _vegetarianFilterSet,
+            Filters.vegan: _veganFilterSet,
+          });
 
           return false;
-        }
+        },
         child: Column(
           children: [
             SwitchListTile(
